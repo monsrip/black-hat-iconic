@@ -68,7 +68,7 @@ export default function AboutSection() {
           </motion.div>
 
           {/* FLOATING TECH NODES */}
-          {[...Array(6)].map((_, i) => (
+          {[...Array(7)].map((_, i) => (
             <motion.div
               key={i}
               animate={{
