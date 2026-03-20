@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import HeroSection from "./components/HeroSection";
 
 /* ========= TYPES ========= */
 
@@ -84,44 +85,10 @@ const Home: React.FC = () => {
   return (
     <div className="bg-white text-black font-sans">
 
-      {/* NAVBAR */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur bg-white/80 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3">
-
-          {/* LOGO + NAME */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/company/logo.jpeg"
-              alt="Black Hat Iconic Logo"
-              width={200}
-              height={200}
-              className="object-contain"
-            />
-          </Link>
-
-          {/* MENU */}
-          <div className="hidden md:flex space-x-6 text-sm">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#products">Products</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
-          </div>
-
-        </div>
-      </nav>
+      
 
       {/* HERO */}
-      <section className="h-screen flex items-center justify-center text-center px-4 sm:px-6">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-red-600 mb-4 md:mb-6">
-            BLACK HAT ICONIC
-          </h1>
-          <p className="max-w-xl mx-auto text-sm sm:text-base md:text-lg text-gray-600">
-            Engineering the future of software, networking, and intelligent systems.
-          </p>
-        </motion.div>
-      </section>
+      <HeroSection />
 
       {/* ABOUT */}
       <Section id="about" title="About Us">
@@ -181,10 +148,8 @@ const Home: React.FC = () => {
         </Glass>
       </Section>
 
-      {/* FOOTER */}
-      <footer className="text-center py-4 text-xs sm:text-sm text-gray-500 border-t border-gray-200">
-        © {new Date().getFullYear()} BLACK HAT ICONIC
-      </footer>
+    
+     
 
     </div>
   );
