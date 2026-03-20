@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
+import ServicesSection from "./components/ServicesSection";
 
 /* ========= TYPES ========= */
 
@@ -95,18 +96,7 @@ const Home: React.FC = () => {
       <AboutSection />
 
       {/* SERVICES */}
-      <Section id="services" title="Services">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          {services.map((s, i) => (
-            <Glass key={i}>
-              <h3 className="font-semibold mb-2 text-sm sm:text-base">
-                {s.title}
-              </h3>
-              <p className="text-gray-600 text-xs sm:text-sm">{s.desc}</p>
-            </Glass>
-          ))}
-        </div>
-      </Section>
+      <ServicesSection />
 
       {/* PRODUCTS */}
       <Section id="products" title="Products">
