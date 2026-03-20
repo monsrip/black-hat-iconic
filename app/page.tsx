@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
 
 /* ========= TYPES ========= */
 
@@ -91,15 +92,7 @@ const Home: React.FC = () => {
       <HeroSection />
 
       {/* ABOUT */}
-      <Section id="about" title="About Us">
-        <Glass>
-          <p className="text-gray-600 text-sm sm:text-base">
-            BLACK HAT ICONIC is a technology company specializing in software development,
-            networking infrastructure, and electronics manufacturing. We build scalable,
-            secure, and high-performance solutions for modern businesses.
-          </p>
-        </Glass>
-      </Section>
+      <AboutSection />
 
       {/* SERVICES */}
       <Section id="services" title="Services">

@@ -36,21 +36,7 @@ export default function FlashScreen() {
               className="absolute w-28 h-28 border border-red-500 rounded-full"
             />
 
-            {/* LOGO */}
-            <motion.div
-              initial={{ rotate: -10 }}
-              animate={{ rotate: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {/* <Image
-                src="/company/logo.jpeg"
-                alt="logo"
-                width={80}
-                height={80}
-                className="object-contain drop-shadow-[0_0_20px_rgba(255,0,0,0.6)]"
-                priority
-              /> */}
-            </motion.div>
+           
 
             {/* TEXT */}
             <motion.h1
