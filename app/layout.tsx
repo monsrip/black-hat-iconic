@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ClientWrapper from "./components/ClientWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
   description:
     "Advanced software, networking infrastructure, and enterprise technology solutions by BLACK HAT ICONIC.",
   icons: {
-    icon: "/company/icon.jpeg",       // normal favicon
-    shortcut: "/company/icon.jpeg",   // shortcut icon
-    apple: "/company/icon.jpeg",      // iOS icon
+    icon: "/company/icon.jpeg",
+    shortcut: "/company/icon.jpeg",
+    apple: "/company/icon.jpeg",
   },
   keywords: [
     "Software Development",
@@ -37,19 +38,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
-        </body>
+        <ClientWrapper>
+          <Navbar />
+          {children}
+          <Footer />
+        </ClientWrapper>
+      </body>
     </html>
   );
 }
