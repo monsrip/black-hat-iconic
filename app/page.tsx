@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 /* ========= TYPES ========= */
 
@@ -85,9 +87,19 @@ const Home: React.FC = () => {
       {/* NAVBAR */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur bg-white/80 border-b border-gray-200">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3">
-          <h1 className="text-base sm:text-lg md:text-xl font-bold text-red-600">
-            BLACK HAT ICONIC
-          </h1>
+
+          {/* LOGO + NAME */}
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/company/logo.jpeg"
+              alt="Black Hat Iconic Logo"
+              width={200}
+              height={200}
+              className="object-contain"
+            />
+          </Link>
+
+          {/* MENU */}
           <div className="hidden md:flex space-x-6 text-sm">
             <a href="#about">About</a>
             <a href="#services">Services</a>
@@ -95,6 +107,7 @@ const Home: React.FC = () => {
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
           </div>
+
         </div>
       </nav>
 
