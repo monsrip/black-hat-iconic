@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   description:
     "Advanced software, networking infrastructure, and enterprise technology solutions by BLACK HAT ICONIC.",
   icons: {
-    icon: "/company/icon.jpeg",
-    shortcut: "/company/icon.jpeg",
-    apple: "/company/icon.jpeg",
+    icon: "/company/Final-Logo-FAB.png",
+    shortcut: "/company/Final-Logo-FAB.png",
+    apple: "/company/Final-Logo-FAB.png",
   },
   keywords: [
     "Software Development",

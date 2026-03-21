@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,8 @@ import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/ServicesSection";
 import ProductsSection from "./components/ProductsSection";
+import TeamSection from "./components/TeamSection";
+import ContactSection from "./components/ContactSection";
 
 /* ========= TYPES ========= */
 
@@ -103,28 +106,10 @@ const Home: React.FC = () => {
       <ProductsSection />
 
       {/* TEAM */}
-      <Section id="team" title="Leadership Team">
-        <div className="space-y-4 max-w-xl mx-auto">
-          {team.map((t, i) => (
-            <Glass key={i}>
-              <strong className="text-sm sm:text-base">{t.name}</strong>
-              <div className="text-xs sm:text-sm text-gray-600">
-                {t.role}
-              </div>
-            </Glass>
-          ))}
-        </div>
-      </Section>
+      <TeamSection team={team}/>
 
       {/* CONTACT */}
-      <Section id="contact" title="Contact">
-        <Glass>
-          <p className="text-gray-600 text-center text-sm sm:text-base">
-            02, Hazra Ghery, Rathtala, Uttar Chandanpiri, Namkhana,<br />
-            West Bengal, 743357, India
-          </p>
-        </Glass>
-      </Section>
+      <ContactSection />
 
     
      

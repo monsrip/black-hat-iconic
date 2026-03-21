@@ -23,18 +23,18 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/company/logo.jpeg"
+            src="/company/Full-Logo.png"
             alt="Black Hat Iconic Logo"
-            width={80}
-            height={80}
-            className="h-10 w-auto object-contain"
+            width={100}
+            height={100}
+            className="h-12 w-auto object-contain"
           />
         </Link>
 
         {/* DESKTOP MENU */}
         <div className="hidden md:flex space-x-6 text-sm">
           {menu.map((item) => (
-            <a key={item.name} href={item.href} className="hover:text-red-600 transition">
+            <a key={item.name} href={item.href} className="hover:text-red-600 transition text-black">
               {item.name}
             </a>
           ))}
@@ -64,7 +64,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-lg hover:text-red-600 transition"
+                  className="text-lg hover:text-red-600 transition text-black"
                 >
                   {item.name}
                 </a>
