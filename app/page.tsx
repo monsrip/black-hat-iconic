@@ -6,6 +6,7 @@ import Link from "next/link";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/ServicesSection";
+import ProductsSection from "./components/ProductsSection";
 
 /* ========= TYPES ========= */
 
@@ -99,13 +100,7 @@ const Home: React.FC = () => {
       <ServicesSection />
 
       {/* PRODUCTS */}
-      <Section id="products" title="Products">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {products.map((p, i) => (
-            <Glass key={i}>{p}</Glass>
-          ))}
-        </div>
-      </Section>
+      <ProductsSection />
 
       {/* TEAM */}
       <Section id="team" title="Leadership Team">
