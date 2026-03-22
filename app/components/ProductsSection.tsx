@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 /* ================= DATA ================= */
 
@@ -8,21 +9,31 @@ const products = [
     title: "Wireless Controllers",
     desc: "Centralized wireless management systems for enterprise networks with high scalability.",
     type: "wireless",
+    url: "#",
   },
   {
     title: "Network Monitoring Systems (NMS)",
     desc: "Real-time analytics, monitoring, and intelligent performance tracking solutions.",
     type: "monitoring",
+    url: "#",
   },
   {
     title: "Routers & Switches",
     desc: "High-performance networking hardware built for speed, reliability, and scalability.",
     type: "network",
+    url: "#",
   },
   {
     title: "IoT Devices",
     desc: "Smart connected devices enabling automation and intelligent infrastructure.",
     type: "iot",
+    url: "#",
+  },
+  {
+    title: "MAC Address Generator",
+    desc: "Generate random MAC addresses instantly for testing and networking purposes.",
+    type: "tools",
+    url: "https://www.blackhathunter.com/",
   },
 ];
 
@@ -362,6 +373,30 @@ function BackgroundVector({ type }: { type: string }) {
 
         </div>
       )}
+
+      {type === "tools" && (
+  <div className="absolute inset-0 flex items-center justify-center">
+    
+    {[...Array(6)].map((_, i) => (
+      <motion.div
+        key={i}
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 10 + i * 2,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="absolute border border-red-500/10 rounded-full"
+        style={{
+          width: `${80 + i * 40}px`,
+          height: `${80 + i * 40}px`,
+        }}
+      />
+    ))}
+
+    <div className="w-2 h-2 bg-red-500 rounded-full z-10" />
+  </div>
+)}
     </div>
   );
 }
@@ -370,7 +405,7 @@ function BackgroundVector({ type }: { type: string }) {
 
 export default function ProductsSection() {
   return (
-    <section className="bg-black text-white py-24 px-4 sm:px-6">
+    <section id="products" className="bg-black text-white py-24 px-4 sm:px-6">
 
       {/* HEADER */}
       <div className="mx-auto text-center mb-20">
@@ -411,9 +446,12 @@ export default function ProductsSection() {
                   {p.desc}
                 </p>
 
-                <button className="mt-4 px-6 py-2 border border-red-500 rounded-full text-sm hover:bg-red-500 transition">
+                <Link
+                  href={p.url} target="_blank"
+                  className="mt-4 inline-block px-6 py-2 border border-red-500 rounded-full text-sm hover:bg-red-500 transition"
+                >
                   Learn More
-                </button>
+                </Link>
               </motion.div>
 
             </div>
