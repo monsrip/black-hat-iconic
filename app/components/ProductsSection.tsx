@@ -54,47 +54,45 @@ function BackgroundVector({ type }: { type: string }) {
 
       {/* ================= WIRELESS ================= */}
       {type === "wireless" && (
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="relative w-full h-full flex items-center justify-center">
 
-          {/* MULTIPLE WAVE LAYERS */}
-          {[...Array(4)].map((_, i) => (
-            <motion.svg
-              key={i}
-              className="absolute w-[200%] h-full"
-              viewBox="0 0 800 200"
-              preserveAspectRatio="none"
-              animate={{ x: ["-25%", "0%"] }}
-              transition={{
-                duration: 10 + i * 3,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              style={{
-                top: `${i * 20}%`,
-                opacity: 0.15 - i * 0.02,
-              }}
-            >
-              <motion.path
-                d="
-            M0 100
-            C50 20, 100 180, 150 100
-            C200 20, 250 180, 300 100
-            C350 20, 400 180, 450 100
-            C500 20, 550 180, 600 100
-            C650 20, 700 180, 750 100
-            C800 20, 850 180, 900 100
-          "
-                fill="none"
-                stroke="#ef4444"
-                strokeWidth="1.5"
-              />
-            </motion.svg>
-          ))}
+            {/* SIGNAL TOWER */}
+            <div className="w-2 h-2 bg-red-500 rounded-full z-10" />
 
+            {/* EXPANDING WAVES */}
+            {[1, 2, 3, 4, 5].map((i) => (
+            <motion.div
+                key={i}
+                animate={{
+                  scale: [1, 1.8, 2.5],
+                  opacity: [0, 0.6, 0],
+                }}
+                transition={{
+                  duration: 5,          // slower = smoother
+                  repeat: Infinity,
+                  ease: "easeInOut",      // 🔥 key for smoothness
+                  delay: i * 0.7,         // better spacing
+                }}
+                className="absolute w-32 h-32 border border-red-900 rounded-full"
+            />
+            ))}
 
+            {/* SIDE SIGNAL LINES */}
+            {[...Array(5)].map((_, i) => (
+            <motion.div
+                key={i}
+                animate={{ opacity: [0.2, 1, 0.2] }}
+                transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
+                className="absolute w-16 h-[1px] bg-red-500"
+                style={{
+                transform: `rotate(${i * 30}deg)`,
+                }}
+            />
+            ))}
 
         </div>
-      )}
+        )}
+
 
       {type === "monitoring" && (
         <div className="absolute inset-0 overflow-hidden">
