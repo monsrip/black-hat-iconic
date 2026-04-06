@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Disable selection */
+body {
+  user-select: none;
+}
+
+/* Disable image dragging */
+img {
+  pointer-events: none;
+}
+
+/* Optional: prevent highlighting */
+* {
+  -webkit-touch-callout: none;
+}
