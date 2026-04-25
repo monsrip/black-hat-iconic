@@ -49,8 +49,8 @@ export default function ContactSection({
 
         {/* ADDRESS */}
         <p className="relative z-10 text-gray-300 text-sm sm:text-base leading-relaxed">
-          02, Hazra Ghery, Rathtala, Uttar Chandanpiri, Namkhana,<br />
-          West Bengal, 743357, India
+          03, Rathtala, Uttar Chandanpiri, Namkhana,<br />
+          WB - 743357
         </p>
 
         {/* BOTTOM LINE ANIMATION */}

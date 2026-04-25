@@ -69,9 +69,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <p className="text-sm leading-relaxed">
-              02, Hazra Ghery, Rathtala,<br />
+              03, Rathtala,<br />
               Uttar Chandanpiri, Namkhana,<br />
-              West Bengal, India
+              WB - 743357
             </p>
 
             <p className="mt-3 text-sm">
@@ -116,7 +116,7 @@ export default function Footer() {
         >
 
           <p>
-            © {new Date().getFullYear()} BLACK HAT ICONIC. All rights reserved.
+            © {new Date().getFullYear()} BLACK HAT ICONIC PRIVATE LIMITED. All rights reserved.
           </p>
 
         </motion.div>

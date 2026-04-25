@@ -80,9 +80,9 @@ const products: string[] = [
 ];
 
 const team: Team[] = [
-  { name: "Sumon Mondal", role: "Managing Director (MD)" },
+  { name: "Sumon Mondal", role: "Managing Director (MD) & CEO" },
   { name: "Mohan Maity", role: "Chief Technology Officer (CTO)" },
-  { name: "Nitam", role: "Chief Operating Officer (COO)" }
+  { name: "Nittam", role: "Chief Operating Officer (COO)" }
 ];
 
 /* ========= MAIN COMPONENT ========= */
