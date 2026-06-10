@@ -31,6 +31,7 @@ type Service = {
 type Team = {
   name: string;
   role: string;
+  image: string;
 };
 
 /* ========= REUSABLE COMPONENTS ========= */
@@ -80,9 +81,21 @@ const products: string[] = [
 ];
 
 const team: Team[] = [
-  { name: "Sumon Mondal", role: "Managing Director (MD) & CEO" },
-  { name: "Mohan Maity", role: "Chief Technology Officer (CTO)" },
-  { name: "Nittam", role: "Chief Operating Officer (COO)" }
+  {
+    name: "Sumon Mondal",
+    role: "Managing Director (MD) & CEO",
+    image: "/sumon.jpeg"
+  },
+  {
+    name: "Mohan Maity",
+    role: "Chief Technology Officer (CTO)",
+    image: "/mohan.jpeg"
+  },
+  {
+    name: "Nittam",
+    role: "Chief Operating Officer (COO)",
+    image: "/nittam.jpeg"
+  }
 ];
 
 /* ========= MAIN COMPONENT ========= */

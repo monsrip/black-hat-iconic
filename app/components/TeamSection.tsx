@@ -36,7 +36,7 @@ export default function TeamSection({
       </div>
 
       {/* GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
         {team.map((t, i) => (
           <motion.div
