@@ -444,12 +444,21 @@ export default function ProductsSection() {
                   {p.desc}
                 </p>
 
-                <Link
-                  href={p.url} target="_blank"
-                  className="mt-4 inline-block px-6 py-2 border border-red-500 rounded-full text-sm hover:bg-red-500 transition"
-                >
-                  Learn More
-                </Link>
+                {p.url === "#" ? (
+                  <span className="mt-4 inline-block px-6 py-2 border border-white/20 rounded-full text-sm text-gray-300">
+                    Product details available on request
+                  </span>
+                ) : (
+                  <Link
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Learn more about ${p.title}`}
+                    className="mt-4 inline-block px-6 py-2 border border-red-500 rounded-full text-sm hover:bg-red-500 transition"
+                  >
+                    Learn More
+                  </Link>
+                )}
               </motion.div>
 
             </div>

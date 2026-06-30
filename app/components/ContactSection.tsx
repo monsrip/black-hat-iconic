@@ -48,10 +48,10 @@ export default function ContactSection({
         </motion.div>
 
         {/* ADDRESS */}
-        <p className="relative z-10 text-gray-300 text-sm sm:text-base leading-relaxed">
+        <address className="relative z-10 text-gray-300 text-sm sm:text-base leading-relaxed not-italic">
           03, Rathtala, Uttar Chandanpiri, Namkhana,<br />
           WB - 743357
-        </p>
+        </address>
 
         {/* BOTTOM LINE ANIMATION */}
         <motion.div

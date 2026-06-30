@@ -17,7 +17,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur bg-white/80 border-b border-gray-200">
+    <nav aria-label="Primary navigation" className="fixed top-0 w-full z-50 backdrop-blur bg-white/80 border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3">
 
         {/* LOGO */}
@@ -42,7 +42,11 @@ export default function Navbar() {
 
         {/* MOBILE BUTTON (React Icon) */}
         <button
+          type="button"
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
           className="md:hidden text-2xl"
         >
           {open ? <HiX /> : <HiMenu />}
@@ -58,7 +62,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden bg-white border-t border-gray-200"
           >
-            <div className="flex flex-col items-center py-6 space-y-4">
+            <div id="mobile-navigation" className="flex flex-col items-center py-6 space-y-4">
               {menu.map((item) => (
                 <a
                   key={item.name}

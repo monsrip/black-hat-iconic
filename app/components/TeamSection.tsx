@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type TeamMember = {
   name: string;
@@ -50,9 +51,11 @@ export default function TeamSection({
             {/* IMAGE */}
             <div className="absolute inset-0 overflow-hidden">
               {t.image ? (
-                <img
+                <Image
                   src={t.image}
-                  alt={t.name}
+                  alt={`${t.name}, ${t.role} at Black Hat Iconic`}
+                  fill
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 267px"
                   className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                 />
               ) : (

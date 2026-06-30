@@ -1,84 +1,16 @@
-"use client";
-import React from "react";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/ServicesSection";
 import ProductsSection from "./components/ProductsSection";
 import TeamSection from "./components/TeamSection";
 import ContactSection from "./components/ContactSection";
-
-/* ========= TYPES ========= */
-
-type SectionProps = {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-};
-
-type GlassProps = {
-  children: React.ReactNode;
-};
-
-type Service = {
-  title: string;
-  desc: string;
-};
+import { siteConfig } from "./site-config";
 
 type Team = {
   name: string;
   role: string;
   image: string;
 };
-
-/* ========= REUSABLE COMPONENTS ========= */
-
-const Section: React.FC<SectionProps> = ({ id, title, children }) => (
-  <section id={id} className="py-16 md:py-24 lg:py-28 px-4 sm:px-6">
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
-        {title}
-      </h2>
-      {children}
-    </div>
-  </section>
-);
-
-const Glass: React.FC<GlassProps> = ({ children }) => (
-  <motion.div
-    whileHover={{ scale: 1.03 }}
-    className="backdrop-blur-xl bg-white/70 border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition"
-  >
-    {children}
-  </motion.div>
-);
-
-/* ========= DATA ========= */
-
-const services: Service[] = [
-  {
-    title: "Software Development",
-    desc: "Custom web, mobile, and enterprise applications built for scalability and performance."
-  },
-  {
-    title: "Software Manufacturing",
-    desc: "Robust and high-performance software products tailored for industries."
-  },
-  {
-    title: "Networking Solutions",
-    desc: "Advanced networking systems, monitoring tools, and enterprise infrastructure."
-  }
-];
-
-const products: string[] = [
-  "Wireless Controllers",
-  "Network Monitoring Systems (NMS)",
-  "Routers & Switches",
-  "IoT Devices"
-];
 
 const team: Team[] = [
   {
@@ -100,35 +32,70 @@ const team: Team[] = [
 
 /* ========= MAIN COMPONENT ========= */
 
-const Home: React.FC = () => {
-  return (
-    <div className="bg-white text-black font-sans">
-
-      
-
-      {/* HERO */}
-      <HeroSection />
-
-      {/* ABOUT */}
-      <AboutSection />
-
-      {/* SERVICES */}
-      <ServicesSection />
-
-      {/* PRODUCTS */}
-      <ProductsSection />
-
-      {/* TEAM */}
-      <TeamSection team={team}/>
-
-      {/* CONTACT */}
-      <ContactSection />
-
-    
-     
-
-    </div>
-  );
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      legalName: siteConfig.legalName,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/company/Full-Logo.png`,
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      description: siteConfig.description,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.locality,
+        addressRegion: siteConfig.address.region,
+        postalCode: siteConfig.address.postalCode,
+        addressCountry: siteConfig.address.country,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: siteConfig.phone,
+        email: siteConfig.email,
+        contactType: "customer service",
+        areaServed: "IN",
+        availableLanguage: ["English", "Bengali", "Hindi"],
+      },
+      knowsAbout: [
+        "Enterprise software development",
+        "Network monitoring systems",
+        "Networking infrastructure",
+        "IoT devices",
+        "Electronics manufacturing",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      publisher: { "@id": `${siteConfig.url}/#organization` },
+      inLanguage: "en-IN",
+    },
+  ],
 };
 
-export default Home;
+export default function Home() {
+  return (
+    <main className="bg-white text-black font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <ProductsSection />
+      <TeamSection team={team} />
+      <ContactSection />
+    </main>
+  );
+}

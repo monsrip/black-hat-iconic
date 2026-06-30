@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const HeroSection: React.FC = () => (
-  <section className="relative min-h-[100vh] flex items-center justify-center text-white px-4 overflow-hidden">
+  <section id="home" className="relative min-h-[100vh] flex items-center justify-center text-white px-4 overflow-hidden">
 
     {/* 🎥 VIDEO BACKGROUND */}
     <video
@@ -12,6 +12,9 @@ const HeroSection: React.FC = () => (
       loop
       muted
       playsInline
+      preload="metadata"
+      aria-hidden="true"
+      tabIndex={-1}
       className="absolute inset-0 w-full h-full object-cover"
     >
       <source src="/company/company.mp4" type="video/mp4" />
@@ -28,12 +31,12 @@ const HeroSection: React.FC = () => (
       className="relative z-10 max-w-4xl text-center space-y-6"
     >
       <h1 className="text-3xl sm:text-5xl font-extrabold">
-       <span className="text-black-500">Black Hat</span> <span className="text-red-500">Iconic</span>  
+        Secure Software, Networking &amp; Electronics Solutions
       </h1>
 
       <p className="text-sm sm:text-base text-gray-200">
-        Secure software, resilient networking, and industrial-grade electronics
-        for next-gen digital infrastructure.
+        Black Hat Iconic builds resilient networks, enterprise software, and
+        industrial-grade electronics for next-generation digital infrastructure.
       </p>
 
       <Link

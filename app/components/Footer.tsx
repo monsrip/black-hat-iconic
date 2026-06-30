@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { siteConfig } from "../site-config";
 
 export default function Footer() {
   return (
@@ -52,13 +53,18 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              {["Home", "Products", "Solutions", "Contact"].map((item, i) => (
-                <li key={i}>
+              {[
+                { name: "Home", href: "#home" },
+                { name: "Products", href: "#products" },
+                { name: "Services", href: "#services" },
+                { name: "Contact", href: "#contact" },
+              ].map((item) => (
+                <li key={item.name}>
                   <Link
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href}
                     className="hover:text-red-500 transition"
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -68,21 +74,24 @@ export default function Footer() {
           {/* 📍 CONTACT */}
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <p className="text-sm leading-relaxed">
+            <address className="text-sm leading-relaxed not-italic">
               03, Rathtala,<br />
               Uttar Chandanpiri, Namkhana,<br />
               WB - 743357
-            </p>
+            </address>
 
-            <p className="mt-3 text-sm">
-              📧 info@blackhaticonic.com
-            </p>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="block mt-3 text-sm hover:text-red-500 transition"
+            >
+              📧 {siteConfig.email}
+            </a>
             <motion.a
-              href="tel:+918942816444"  // 🔥 replace if needed
+              href={`tel:${siteConfig.phone}`}
               whileHover={{ x: 5 }}
               className="block mt-2 text-sm hover:text-red-500 transition"
             >
-              📞 +91 9242299009
+              📞 {siteConfig.displayPhone}
             </motion.a>
           </div>
 
@@ -93,6 +102,7 @@ export default function Footer() {
 
   <div className="rounded-xl overflow-hidden border border-white/10">
     <iframe
+      title="Black Hat Iconic office location in Namkhana, West Bengal"
       src="https://www.google.com/maps?q=M7XJ%2BGC%20Uttar%20Chandanpiri%2C%20West%20Bengal%2C%20India&output=embed"
       width="100%"
       height="160"
